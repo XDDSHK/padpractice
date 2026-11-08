@@ -4,8 +4,6 @@ A free, open-source practice trainer for electronic drum pads. Plug in your pad 
 
 Built and tested with the Roland SPD-SX PRO, and it should work with any pad or kit that sends MIDI notes over USB.
 
-**Try it:** `https://YOUR-USERNAME.github.io/pad-practice/`
-
 ## Features
 
 - Metronome with a one-bar count-in, 40–240 BPM
