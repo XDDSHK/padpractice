@@ -27,6 +27,7 @@ Built and tested with the Roland SPD-SX PRO, and it should work with any pad or 
 - 17 trophies in bronze, silver, and gold, each with bonus XP
 - Progress saved in your browser, with backup download and restore to move it between devices
 - Session history saved in your browser
+- Guides tab with step-by-step walkthroughs for connecting and mapping your pads
 - Automatic latency calibration, plus a manual latency slider
 - On-screen pads with center and edge zones (rim shots on the edges), plus F/J keys for practicing without hardware
 - 13 drum sounds in 7 kits (Studio, Rock, Metal, Jazz, Funk, Hip-hop, and 808 electronic), velocity-sensitive and synthesized in code with no samples
@@ -41,7 +42,7 @@ Built and tested with the Roland SPD-SX PRO, and it should work with any pad or 
 
 If steady playing always reads late, move the latency slider until it centers near zero.
 
-Stuck? Open **Setup → Step-by-step guide** in the app for an illustrated walkthrough, a live MIDI test, and troubleshooting.
+Stuck? Open the **Guides** tab in the app for an illustrated walkthrough on connecting your pad, a guide to mapping your pads, a live MIDI test, and troubleshooting.
 
 ## Running locally
 
