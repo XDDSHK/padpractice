@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pad Practice</title>
-<script type="text/javascript" nonce="53ddff40c8854c0b811f80cc02e" src="//local.adguard.org?ts=1794147129981&amp;type=content-script&amp;dmn=aeabbffe-329f-43ed-b2fe-c34dae70056e.frame.claudeusercontent.com&amp;url=https%3A%2F%2Faeabbffe-329f-43ed-b2fe-c34dae70056e.frame.claudeusercontent.com%2F_f%2F1794148299-c80c%2F_src%2Findex.html%3F__frame_t%3DKJ1oBk0zz99a7oQksJUhvetW.1e4a9020-9dc2-4481-b1c0-b41fd151e51f.50970b36-8012-4c48-8fca-b2ad4c3c2702.1794152011&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-dnt"></script><script type="text/javascript" nonce="53ddff40c8854c0b811f80cc02e" src="//local.adguard.org?ts=1794147129981&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,300..800&display=swap" rel="stylesheet">
 <style>
@@ -53,7 +53,7 @@ body{margin:0;color:var(--ink);font:400 16px/1.5 Saira,"Helvetica Neue",Arial,sa
     repeating-linear-gradient(45deg,color-mix(in srgb,var(--ink) 3%,transparent) 0 1px,transparent 1px 7px),
     repeating-linear-gradient(-45deg,color-mix(in srgb,var(--ink) 3%,transparent) 0 1px,transparent 1px 7px),
     linear-gradient(180deg,var(--bg),var(--bg2))}
-.wrap{max-width:1240px;margin:0 auto;padding:24px 20px 56px}
+.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 56px}
 
 /* Header */
 header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 16px 20px}
@@ -63,6 +63,7 @@ h1{margin:0;font-size:2.4rem;line-height:1;font-weight:800;font-stretch:125%;let
 .status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line)}
 .status.ok{color:var(--ink)}
 .status.ok::before{background:var(--cue);box-shadow:0 0 8px var(--cue)}
+.status.rx::before{background:#FFFFFF;box-shadow:0 0 10px #FFFFFF}
 .status.err{color:var(--late)}
 .status.err::before{background:var(--next);box-shadow:0 0 8px var(--next)}
 h2{margin:0 0 12px;font-size:1.1rem;font-weight:650;font-stretch:112%}
@@ -380,6 +381,52 @@ canvas{display:block;width:calc(100% - 12px);height:150px;margin:14px 6px 0}
 .chal.done .chal-tag,.chal.done .chal-xp{color:var(--meter-on)}
 .chal.done .chal-week i.on{background:var(--meter-on);box-shadow:0 0 6px var(--meter-on)}
 @media (max-width:520px){.chal{grid-template-columns:auto minmax(0,1fr) auto;gap:8px 12px;margin:0 10px 10px;padding:10px 12px}.chal-icon{width:38px;height:38px;border-radius:12px}.chal-icon svg{width:22px;height:22px}.chal-body b{font-size:1rem}.chal-goal{font-size:.84rem}.chal-week{display:none}.chal-side{grid-column:1/-1;justify-content:space-between}.chal-side .btn{padding:8px 12px}.chal.done .chal-side,.chal.done .chal-goal{display:none}}
+/* Pad mapping guide */
+.mp-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;gap:10px}
+.mp-node{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--field)}
+.mp-node b{margin-top:6px;font-size:.98rem}
+.mp-node small{color:var(--muted);font-size:.88rem;line-height:1.4}
+.mp-arrow{align-self:center;color:var(--cue)}
+.mp-arrow svg{width:22px;height:22px;display:block}
+.gp-pl.need .gp-mark{color:#1C0A02;background:var(--next);box-shadow:0 0 12px -2px var(--next)}
+.mp-ways > li{grid-template-columns:minmax(0,1fr) minmax(0,280px)}
+.mp-edit{justify-self:center;width:100%;max-width:260px;padding:14px;border-radius:12px;border:2px solid var(--cue);background:var(--surface);box-shadow:0 16px 30px -14px rgba(0,0,0,.6);font-size:.88rem}
+.mp-edit b{display:block;font-size:1rem;margin-bottom:8px}
+.mp-field{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-top:1px solid var(--line);color:var(--muted)}
+.mp-sel,.mp-note{color:var(--ink);font-weight:600}
+.mp-sel::after{content:" ▾";color:var(--muted)}
+.mp-btns{display:flex;gap:6px;margin-top:10px}
+.mp-btn{padding:5px 10px;border-radius:8px;border:1px solid var(--line);font-size:.78rem;font-weight:600}
+.mp-btn.on{border-color:var(--cue);box-shadow:0 0 0 1px var(--cue),0 0 12px -3px var(--cue)}
+.mp-sw{display:flex;gap:6px;margin-top:10px}
+.mp-sw i{width:16px;height:16px;border-radius:50%;border:2px solid #000}
+.mp-sw .a{background:#FF4D4D}.mp-sw .b{background:#FF8A2B}.mp-sw .c{background:#FFD23F;outline:2px solid var(--ink);outline-offset:2px}.mp-sw .d{background:#3DE38A}.mp-sw .e{background:#36E2D6}.mp-sw .f{background:#4DA3FF}
+.mp-test .gp-test-head b{font-size:1rem}
+.mp-out{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:1.15rem;font-weight:700}
+.mp-out.unmapped{color:var(--next)}
+.mp-dot{width:14px;height:14px;border-radius:50%;background:#4A4D55;flex:0 0 auto}
+.mp-out.hit .mp-dot{background:var(--pc,#fff);box-shadow:0 0 12px var(--pc,#fff)}
+.maplink{flex-basis:100%;text-align:center;justify-self:center}
+.glink.inl{display:inline;margin:0;font-size:inherit}
+@media (max-width:860px){
+  .mp-flow{grid-template-columns:minmax(0,1fr)}
+  .mp-arrow{transform:rotate(90deg);justify-self:center}
+  .mp-ways > li{grid-template-columns:minmax(0,1fr)}
+}
+/* Guides hub */
+.gh-head h2{margin:0;font-size:2.2rem;line-height:1.05;font-weight:800;font-stretch:118%}
+.gh-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
+.gh-card{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:18px;border-radius:16px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;text-align:left;cursor:pointer;transition:border-color .15s,transform .15s,box-shadow .15s}
+.gh-card:hover{border-color:var(--cue);transform:translateY(-2px);box-shadow:0 14px 30px -18px color-mix(in srgb,var(--cue) 80%,transparent)}
+.gh-card .gp-icon{width:48px;height:48px;border-radius:14px;margin-bottom:6px}
+.gh-card .gp-icon svg{width:26px;height:26px}
+.gh-card b{font-size:1.1rem}
+.gh-sub{color:var(--muted);font-size:.92rem;line-height:1.45}
+.gh-go{margin-top:auto;padding-top:10px;color:var(--cue);font-weight:600;font-size:.92rem}
+.gp-topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.gp-topbar .gp-back{margin:0}
+.gp-switch{margin:0;flex:0 1 380px}
+@media (prefers-reduced-motion:reduce){.gh-card{transition:none}}
 /* Beat maker */
 .bmtop{align-items:flex-end}
 .bmtop .grow{flex:1 1 160px}
@@ -549,7 +596,7 @@ section[hidden]{display:none!important}
 .tab.active{color:var(--ink);background:var(--raised);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 0 0 1px var(--line),0 8px 20px -10px color-mix(in srgb,var(--cue) 70%,transparent)}
 .tab.active svg{color:var(--cue);filter:drop-shadow(0 0 6px color-mix(in srgb,var(--cue) 60%,transparent))}
 .appbar .brand{grid-area:brand}.appbar .tabs{grid-area:tabs}.appbar .hud{grid-area:hud}
-@media (min-width:861px) and (max-width:1239px){
+@media (min-width:861px) and (max-width:1439px){
   .appbar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand hud" "tabs tabs";row-gap:10px}
   .appbar .tabs{justify-self:stretch}
   .appbar .tab{flex:1;justify-content:center}
@@ -567,7 +614,7 @@ button.status:hover{border-color:var(--muted)}
   .appbar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand hud";margin:0 10px 12px;padding:8px 10px}
   .appbar .tabs{display:none}
   .logo svg{width:32px;height:32px}
-  .bottomnav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;position:fixed;left:0;right:0;bottom:0;z-index:15;
+  .bottomnav{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;position:fixed;left:0;right:0;bottom:0;z-index:15;
     padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--surface) 90%,transparent);
     -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
   .bottomnav .tab{flex-direction:column;justify-content:center;gap:3px;padding:7px 4px;font-size:.72rem}
@@ -586,7 +633,7 @@ button.status:hover{border-color:var(--muted)}
       <h1>Pad Practice</h1>
       <button class="helpbtn" id="helpBtn" type="button" aria-label="How it works">?</button>
     </div>
-    <nav class="tabs" aria-label="Sections"><button class="tab" type="button" data-tab="practice"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14.5" rx="8" ry="3.2"/><path d="M4 14.5v2.7c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-2.7M8.5 11.6 5.5 3.8M15.5 11.6l3-7.8"/></svg><span>Practice</span></button><button class="tab" type="button" data-tab="beats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 10h17M3.5 15h17M9 4v16M15 4v16"/></svg><span>Beat maker</span></button><button class="tab" type="button" data-tab="progress"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v4.5a4 4 0 0 1-8 0V4ZM8 6H5.5v1a3 3 0 0 0 3 3M16 6h2.5v1a3 3 0 0 1-3 3M12 12.5V16M8.5 20h7l-.8-4H9.3z"/></svg><span>Progress</span></button><button class="tab" type="button" data-tab="setup"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Setup</span></button></nav>
+    <nav class="tabs" aria-label="Sections"><button class="tab" type="button" data-tab="practice"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14.5" rx="8" ry="3.2"/><path d="M4 14.5v2.7c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-2.7M8.5 11.6 5.5 3.8M15.5 11.6l3-7.8"/></svg><span>Practice</span></button><button class="tab" type="button" data-tab="beats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 10h17M3.5 15h17M9 4v16M15 4v16"/></svg><span>Beat maker</span></button><button class="tab" type="button" data-tab="progress"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v4.5a4 4 0 0 1-8 0V4ZM8 6H5.5v1a3 3 0 0 0 3 3M16 6h2.5v1a3 3 0 0 1-3 3M12 12.5V16M8.5 20h7l-.8-4H9.3z"/></svg><span>Progress</span></button><button class="tab" type="button" data-tab="setup"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Setup</span></button><button class="tab" type="button" data-tab="guides"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/><path d="M9 7.5h6M9 11h6"/></svg><span>Guides</span></button></nav>
     <div class="hud">
       <button class="lvchip" id="lvChip" type="button" aria-label="Your level and trophies">
         <span class="lvnum" id="lvNum">1</span>
@@ -642,6 +689,7 @@ button.status:hover{border-color:var(--muted)}
           <label class="kitpick">Kit<select id="kitSel"></select></label>
           <button class="btn" id="editKit">Edit layout</button>
           <button class="btn" id="mapKit">Learn all notes</button>
+          <button type="button" class="glink maplink" id="mapHelp">How pad mapping works</button>
         </div>
         <div class="editor" id="padEditor" hidden>
           <h3 id="edTitle">Pad 1</h3>
@@ -798,8 +846,133 @@ button.status:hover{border-color:var(--muted)}
     <p class="hint" id="saveMsg" aria-live="polite"></p>
   </section>
 
+  <section class="panel guidepage" id="guidesHub" data-view="guides" data-nofold>
+    <div class="gh-head">
+      <h2>Guides</h2>
+      <p class="gp-lead">Everything you need to get set up and get the most out of Pad Practice.</p>
+    </div>
+    <div class="gh-cards">
+      <button class="gh-card" type="button" data-go="guide"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4M15 3v4M6.5 7h11v3.5a5.5 5.5 0 0 1-11 0z"/><path d="M12 16v5"/></svg></span><b>Connect your pad</b><span class="gh-sub">Step by step: cables, browsers, drivers, and a live MIDI test.</span><span class="gh-go">Open guide →</span></button>
+      <button class="gh-card" type="button" data-go="mapping"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 9.5h17M9.2 9.5V20M14.8 9.5V20M3.5 14.7h17"/></svg></span><b>Map your pads</b><span class="gh-sub">Teach the app which real pad is which. It takes about a minute.</span><span class="gh-go">Open guide →</span></button>
+      <button class="gh-card" type="button" data-go="tour"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><b>Quick start tour</b><span class="gh-sub">Five steps to your first session, plus everything the app can do.</span><span class="gh-go">Start tour →</span></button>
+    </div>
+  </section>
+
+  <section class="panel guidepage" id="mapGuide" data-view="mapping" data-nofold>
+    <div class="gp-topbar"><button class="btn gp-back" id="mpBack" type="button">← All guides</button><div class="gseg gp-switch" role="group" aria-label="Guides"><button type="button" class="gsegbtn" data-go="guide">Connect your pad</button><button type="button" class="gsegbtn" data-go="mapping">Map your pads</button></div></div>
+    <div class="gp-hero">
+      <div>
+        <h2>Map your pads</h2>
+        <p class="gp-lead">Teach Pad Practice which of your real pads is the kick, the snare, and the rest. It takes about a minute, and you only have to do it once.</p>
+      </div>
+      <svg class="gp-hero-ill" viewBox="0 0 600 230" role="img" aria-label="Hitting a real pad sends note 38, which the app links to its Snare square">
+  <defs>
+    <linearGradient id="mpBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2C31"/><stop offset="1" stop-color="#121316"/></linearGradient>
+    <linearGradient id="mpScr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10305A"/><stop offset="1" stop-color="#081830"/></linearGradient>
+  </defs>
+  <rect x="14" y="44" width="200" height="150" rx="16" fill="url(#mpBody)" stroke="#3A3D44"/>
+  <g fill="#1B1C20" stroke="#4A4D55" stroke-width="2">
+    <rect x="28" y="58" width="54" height="56" rx="8"/><rect x="88" y="58" width="54" height="56" rx="8"/><rect x="148" y="58" width="54" height="56" rx="8"/>
+    <rect x="28" y="122" width="54" height="56" rx="8"/><rect x="148" y="122" width="54" height="56" rx="8"/>
+  </g>
+  <rect x="88" y="122" width="54" height="56" rx="8" fill="#26282D" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M150 26 L118 136" stroke="#C9A36B" stroke-width="5" stroke-linecap="round"/><circle cx="117" cy="139" r="4" fill="#E2C48F"/>
+  <g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".8"><path d="M98 146l-8 -4M136 146l8 -4M115 168v8"/></g>
+  <path class="gp-flow" d="M146 150 C 200 150, 214 112, 252 112" fill="none" stroke="#36E2D6" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="5 13"/>
+  <rect x="252" y="92" width="96" height="40" rx="10" fill="url(#mpScr)" stroke="#36E2D6"/>
+  <text x="300" y="117" fill="#FFFFFF" font-size="15" font-weight="700" font-family="Saira, Arial, sans-serif" text-anchor="middle">Note 38</text>
+  <path class="gp-flow" d="M348 112 C 380 112, 384 136, 410 136" fill="none" stroke="#36E2D6" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="5 13"/>
+  <rect x="404" y="40" width="182" height="160" rx="16" fill="url(#mpBody)" stroke="#3A3D44"/>
+  <g fill="#1B1C20" stroke="#4A4D55" stroke-width="1.6">
+    <rect x="416" y="52" width="50" height="16" rx="4" stroke="#FFD23F"/><rect x="470" y="52" width="50" height="16" rx="4" stroke="#36E2D6"/><rect x="524" y="52" width="50" height="16" rx="4" stroke="#4DA3FF"/>
+    <rect x="416" y="74" width="50" height="54" rx="7" stroke="#B07CFF"/><rect x="524" y="74" width="50" height="54" rx="7" stroke="#7C6CFF"/>
+    <rect x="416" y="134" width="50" height="54" rx="7" stroke="#FF4D4D"/><rect x="470" y="134" width="50" height="54" rx="7" stroke="#3DE38A"/><rect x="524" y="134" width="50" height="54" rx="7" stroke="#E05CFF"/>
+  </g>
+  <rect x="470" y="74" width="50" height="54" rx="7" fill="#1F3B3A" stroke="#36E2D6" stroke-width="2.6"/>
+  <text x="495" y="99" fill="#FFFFFF" font-size="11" font-weight="700" font-family="Saira, Arial, sans-serif" text-anchor="middle">Snare</text>
+  <text x="495" y="114" fill="#9DB7D8" font-size="9" font-family="Saira, Arial, sans-serif" text-anchor="middle">Note 38</text>
+</svg>
+    </div>
+
+    <h3 class="gp-h">How it works</h3>
+    <div class="mp-flow">
+      <div class="mp-node"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8.3 5v14M15.7 5v14M3 12h18"/></svg></span><b>You hit a pad</b><small>For example, one of the big pads on your SPD.</small></div>
+      <span class="mp-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="mp-node"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span><b>It sends a note</b><small>Every pad sends its own MIDI note number, like Note 38.</small></div>
+      <span class="mp-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="mp-node"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><rect x="8" y="8" width="8" height="8" rx="1.5"/></svg></span><b>The app finds its square</b><small>Mapping links Note 38 to square 5, the Snare.</small></div>
+      <span class="mp-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="mp-node"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.2 12.3l2.6 2.6 5-5.4"/></svg></span><b>Your hit is graded</b><small>Right sound at the right moment counts as on time.</small></div>
+    </div>
+
+    <h3 class="gp-h">When do you need it?</h3>
+    <div class="gp-plat">
+      <div class="gp-pl ok"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><div><b>Timing only and rudiments</b><p>Not needed. Any pad counts, so you can start right away.</p></div><span class="gp-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      <div class="gp-pl need"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><rect x="8" y="8" width="8" height="8" rx="1.5"/></svg></span><div><b>Beats and your own beats</b><p>Needed, so the app knows which sound you played. Unmapped pads still count, and the app learns them as you play.</p></div><span class="gp-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v8M12 18v.4" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></span></div>
+      <div class="gp-pl need"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20V9.5a1.5 1.5 0 0 1 3 0V13M10 12V6.5a1.5 1.5 0 0 1 3 0V12M13 11.5V8a1.5 1.5 0 0 1 3 0v6c0 3.5-2 6-5 6H9.5c-1.4 0-2.5-1.1-2.5-2.5"/></svg></span><div><b>Left and right hand</b><p>For rudiments, set which real pads count as your right and left hand in Setup.</p></div><span class="gp-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v8M12 18v.4" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/></svg></span></div>
+    </div>
+
+    <h3 class="gp-h">Three ways to map</h3>
+    <ol class="gp-steps mp-ways">
+      <li>
+        <div class="gp-txt"><b>Learn all notes (fastest)</b><p>Under the pads in Practice, press Learn all notes. The app lights up square 1. Hit the real pad you want for it, and it moves on to square 2, then 3, and so on to 9. The three slim squares are the top row.</p><p>Tap any square to jump to it, or press Stop learning to finish early.</p><button class="btn" id="mpLearn" type="button">Start Learn all notes</button></div>
+        <svg class="gp-ill" viewBox="0 0 300 200" role="img" aria-label="Learn all notes goes through squares 1 to 9 in order, top row first">
+  <rect x="10" y="10" width="280" height="180" rx="16" fill="#1B1C20" stroke="#3A3D44"/>
+  <g font-family="Saira, Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <rect x="26" y="24" width="76" height="24" rx="5" fill="#173A2A" stroke="#5EE08F"/><text x="64" y="41" font-size="12" fill="#5EE08F">1 ✓</text>
+    <rect x="112" y="24" width="76" height="24" rx="5" fill="#173A2A" stroke="#5EE08F"/><text x="150" y="41" font-size="12" fill="#5EE08F">2 ✓</text>
+    <rect x="198" y="24" width="76" height="24" rx="5" fill="#13302F" stroke="#36E2D6" stroke-width="2.4" stroke-dasharray="5 4"/><text x="236" y="41" font-size="12" fill="#36E2D6">3</text>
+    <g fill="#141518" stroke="#4A4D55" stroke-width="1.6">
+      <rect x="26" y="58" width="76" height="58" rx="8"/><rect x="112" y="58" width="76" height="58" rx="8"/><rect x="198" y="58" width="76" height="58" rx="8"/>
+      <rect x="26" y="124" width="76" height="58" rx="8"/><rect x="112" y="124" width="76" height="58" rx="8"/><rect x="198" y="124" width="76" height="58" rx="8"/>
+    </g>
+    <g font-size="15" fill="#8E96A3"><text x="64" y="92">4</text><text x="150" y="92">5</text><text x="236" y="92">6</text><text x="64" y="158">7</text><text x="150" y="158">8</text><text x="236" y="158">9</text></g>
+  </g>
+  <rect x="168" y="0" width="120" height="20" rx="10" fill="#36E2D6"/>
+  <text x="228" y="14" font-family="Saira, Arial, sans-serif" font-size="11" font-weight="700" fill="#06201E" text-anchor="middle">Hit this pad next</text>
+</svg>
+      </li>
+      <li>
+        <div class="gp-txt"><b>Change one square</b><p>Press Edit layout and tap a square. Pick its sound and light color, then press Learn from pad and hit the real pad you want. Clear removes the link again.</p><button class="btn" id="mpEdit" type="button">Open Edit layout</button></div>
+        <div class="mp-edit" aria-hidden="true">
+            <b>Square 5</b>
+            <div class="mp-field"><span>Sound</span><span class="mp-sel">Snare</span></div>
+            <div class="mp-field"><span>Real pad</span><span class="mp-note">Note 38</span></div>
+            <div class="mp-btns"><span class="mp-btn on">Learn from pad</span><span class="mp-btn">Clear</span></div>
+            <div class="mp-sw"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><i class="e"></i><i class="f"></i></div>
+          </div>
+      </li>
+      <li>
+        <div class="gp-txt"><b>Let the app learn while you play</b><p>Just start a beat. When a pad isn’t mapped yet, the app matches your hit to the note the beat expects at that moment. After a few consistent hits, it links the pad for you and shows “Pad learned”.</p></div>
+      </li>
+    </ol>
+
+    <h3 class="gp-h">Check your mapping</h3>
+    <div class="gp-test mp-test">
+      <div class="gp-test-head"><b>Hit any pad on your SPD</b><span class="hint">Connect your pad first, under Setup or with the button in the top corner.</span></div>
+      <div class="mp-out" id="mpOut"><span class="mp-dot"></span><span>Waiting for a hit…</span></div>
+    </div>
+    <p class="hint">Each square also shows its note number under the name, and lights up when you hit its pad.</p>
+
+    <h3 class="gp-h">Hand pads and saved layouts</h3>
+    <div class="gp-need">
+      <div class="gp-card"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20V9.5a1.5 1.5 0 0 1 3 0V13M10 12V6.5a1.5 1.5 0 0 1 3 0V12M13 11.5V8a1.5 1.5 0 0 1 3 0v6c0 3.5-2 6-5 6H9.5c-1.4 0-2.5-1.1-2.5-2.5"/></svg></span><b>Right and left hand</b><p>In Setup, under Hand pads and sounds, press Set right-hand pad or Set left-hand pad and hit that pad. On screen, tap a pad’s left or right edge instead.</p></div>
+      <div class="gp-card"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg></span><b>Save your mapping</b><p>Your mapping is kept automatically. To keep several setups, give each one a name in Setup, under Pad layouts. A layout saves sounds, notes, and light colors.</p></div>
+      <div class="gp-card"><span class="gp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9M14 4v3M19 9h-3M17.5 5.5l-2 2M6 6l1.5 1.5M18 14l1.5 1.5"/></svg></span><b>Map again when things change</b><p>If you change the note numbers on your pad, or switch to a pad kit that uses other notes, map again or switch to a saved layout.</p></div>
+    </div>
+
+    <h3 class="gp-h">Troubleshooting</h3>
+    <div class="gp-trouble">
+      <details><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 22 20.5H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v5M12 17.6v.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>A square still says “Not mapped”</summary><p>Press Edit layout, tap that square, press Learn from pad, and hit the real pad. Or run Learn all notes again.</p></details>
+      <details><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 22 20.5H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v5M12 17.6v.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Two real pads light up the same square</summary><p>Both pads send the same note number. Give one of them a different note in your pad’s MIDI settings, then map it again.</p></details>
+      <details><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 22 20.5H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v5M12 17.6v.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>My hits show up as “Extra”</summary><p>That pad is linked to a sound that isn’t in this beat at that moment. Check the square’s name, and remap it if it’s the wrong sound.</p></details>
+      <details><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 22 20.5H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v5M12 17.6v.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>The mapping stopped matching</summary><p>Your pad may be sending other notes now, for example after switching kits on the pad. Run Learn all notes again, and save a layout for each pad kit you use.</p></details>
+      <details><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 22 20.5H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v5M12 17.6v.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Nothing happens when I hit a pad</summary><p>Check that the light on the Pads connected button blinks when you hit. If it doesn’t, your pad isn’t sending MIDI to the app yet. The connection guide in Setup walks you through it.</p></details>
+    </div>
+  </section>
+
   <section class="panel guidepage" id="connectGuide" data-view="guide" data-nofold>
-    <button class="btn gp-back" id="gpBack" type="button">← Back to Setup</button>
+    <div class="gp-topbar"><button class="btn gp-back" id="gpBack" type="button">← All guides</button><div class="gseg gp-switch" role="group" aria-label="Guides"><button type="button" class="gsegbtn" data-go="guide">Connect your pad</button><button type="button" class="gsegbtn" data-go="mapping">Map your pads</button></div></div>
     <div class="gp-hero">
       <div>
         <h2>Connect your drum pad</h2>
@@ -916,7 +1089,7 @@ button.status:hover{border-color:var(--muted)}
         </div>
       </li>
       <li>
-        <div class="gp-txt"><b>Teach the app your pads</b><p>Go to Practice, press Learn all notes under the pads, and hit each real pad in turn. Then calibrate your latency once in Setup, and you’re ready.</p><button class="btn" id="gpPractice" type="button">Go to Practice</button></div>
+        <div class="gp-txt"><b>Teach the app your pads</b><p>Go to Practice, press Learn all notes under the pads, and hit each real pad in turn. Then calibrate your latency once in Setup, and you’re ready.</p><button class="btn" id="gpPractice" type="button">Go to Practice</button> <button class="btn" id="gpMapHelp" type="button">How pad mapping works</button></div>
       </li>
     </ol>
 
@@ -993,6 +1166,7 @@ button.status:hover{border-color:var(--muted)}
 
   <section class="panel" id="layoutsPanel" data-view="setup">
     <h2>Pad layouts</h2>
+    <p class="hint">Not sure how mapping works? <button type="button" class="glink inl" id="mapHelp2">Read the pad mapping guide</button></p>
     <div class="row" style="align-items:flex-end">
       <label style="flex:1 1 150px">Saved layouts<select id="layoutSel"></select></label>
       <input type="text" id="layoutName" placeholder="Name, e.g. My rock kit" aria-label="Layout name" maxlength="40">
@@ -1001,7 +1175,7 @@ button.status:hover{border-color:var(--muted)}
     </div>
     <p class="hint" id="layoutMsg" aria-live="polite">Your changes stick automatically. Save gives a layout a name so you can switch between kits.</p>
   </section>
-  <nav class="bottomnav" aria-label="Sections"><button class="tab" type="button" data-tab="practice"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14.5" rx="8" ry="3.2"/><path d="M4 14.5v2.7c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-2.7M8.5 11.6 5.5 3.8M15.5 11.6l3-7.8"/></svg><span>Practice</span></button><button class="tab" type="button" data-tab="beats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 10h17M3.5 15h17M9 4v16M15 4v16"/></svg><span>Beat maker</span></button><button class="tab" type="button" data-tab="progress"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v4.5a4 4 0 0 1-8 0V4ZM8 6H5.5v1a3 3 0 0 0 3 3M16 6h2.5v1a3 3 0 0 1-3 3M12 12.5V16M8.5 20h7l-.8-4H9.3z"/></svg><span>Progress</span></button><button class="tab" type="button" data-tab="setup"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Setup</span></button></nav>
+  <nav class="bottomnav" aria-label="Sections"><button class="tab" type="button" data-tab="practice"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14.5" rx="8" ry="3.2"/><path d="M4 14.5v2.7c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-2.7M8.5 11.6 5.5 3.8M15.5 11.6l3-7.8"/></svg><span>Practice</span></button><button class="tab" type="button" data-tab="beats"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 10h17M3.5 15h17M9 4v16M15 4v16"/></svg><span>Beat maker</span></button><button class="tab" type="button" data-tab="progress"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v4.5a4 4 0 0 1-8 0V4ZM8 6H5.5v1a3 3 0 0 0 3 3M16 6h2.5v1a3 3 0 0 1-3 3M12 12.5V16M8.5 20h7l-.8-4H9.3z"/></svg><span>Progress</span></button><button class="tab" type="button" data-tab="setup"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><span>Setup</span></button><button class="tab" type="button" data-tab="guides"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/><path d="M9 7.5h6M9 11h6"/></svg><span>Guides</span></button></nav>
   <dialog class="guide" id="guide" aria-labelledby="guideTitle">
     <form method="dialog" class="guidebox">
       <div class="guidehead">
@@ -1013,7 +1187,7 @@ button.status:hover{border-color:var(--muted)}
       <div class="gpane" id="gQuick">
       <ol class="gsteps">
         <li><b>Connect your pad</b><span>Plug it into a computer over USB, open this page in Chrome or Edge, and press Connect pads. No pad nearby? Tap the pads on screen or press F and J.</span><button type="button" class="glink" id="gToGuide">See the connection guide</button></li>
-        <li><b>Teach the app your pads</b><span>Press Learn all notes under the pads, then hit each real pad in turn so the app knows which is which.</span></li>
+        <li><b>Teach the app your pads</b><span>Press Learn all notes under the pads, then hit each real pad in turn so the app knows which is which.</span><button type="button" class="glink" id="gToMap">How pad mapping works</button></li>
         <li><b>Pick a drill and press Start</b><span>Choose a rudiment or beat under Drill. After a one-bar count-in, the lit pads show what to hit. Green is on time, blue is early, and orange is late.</span></li>
         <li><b>Level up</b><span>Earn XP for on-time notes and finished sessions. New drills and beats unlock as you level up, and trophies mark your milestones.</span></li>
         <li><b>Make it yours</b><span>Build and share your own beats in Beat maker, switch drum kits under the pads, and fine-tune everything in Setup.</span></li>
@@ -1160,13 +1334,22 @@ function refreshInputs(){
   });
   if(names.length){setStatus("Connected: "+names.join(", "),"ok");$("connect").textContent="Pads connected";}
   else setStatus("No MIDI devices found. Check the cable, the Driver Mode, and that your pad is switched on.","err");
-  renderDevices(names);renderOutputs();
+  renderDevices(names);renderOutputs();kitState();
 }
 function renderDevices(names){
   const el=$("gpDevices");if(!el)return;
   el.innerHTML=names.length?names.map(n=>`<li>${esc(n)}</li>`).join(""):'<li class="none">No MIDI devices found.</li>';
 }
+function mapMonitor(note){
+  const el=$("mpOut");if(!el)return;
+  const i=padOfNote(note);
+  el.classList.toggle("unmapped",i<0);
+  el.innerHTML=i<0?`<span class="mp-dot"></span><span>Note ${note}: not mapped yet</span>`:`<span class="mp-dot"></span><span>Note ${note} → square ${i+1}, ${esc(padName(i))}</span>`;
+  el.style.setProperty("--pc",i<0?"#FF8A2B":padColor(i));
+  el.classList.add("hit");clearTimeout(mapMonitor.t);mapMonitor.t=setTimeout(()=>el.classList.remove("hit"),160);
+}
 function monitorMidi(note,vel,name){
+  mapMonitor(note);
   const el=$("gpLast");if(!el)return;
   el.innerHTML=`<b>Note ${note}</b><span>Velocity ${vel}</span><span>${esc(name||"")}</span>`;
   $("gpVel").style.width=Math.round(vel/127*100)+"%";
@@ -1174,7 +1357,7 @@ function monitorMidi(note,vel,name){
 }
 function onMidi(e){
   const [st,d1,d2]=e.data;
-  if((st&0xF0)===0x90 && d2>0){monitorMidi(d1,d2,e.target&&e.target.name);hit(e.timeStamp||performance.now(),d1,d2,null);}
+  if((st&0xF0)===0x90 && d2>0){midiBlink();monitorMidi(d1,d2,e.target&&e.target.name);hit(e.timeStamp||performance.now(),d1,d2,null);}
 }
 $("connect").onclick=connectMidi;
 
@@ -1375,6 +1558,7 @@ function setBeatHint(){
   else if(b){
     const missing=Object.keys(b.tracks).filter(r=>!S.layout.some(p=>p.role===r));
     t=`${b.name}: ${b.tip}`+(missing.length?` This beat also needs ${missing.map(roleName).join(" and ")}, so add ${missing.length>1?"them":"it"} to a pad with Edit layout.`:"");
+    if(midiAccess&&S.layout.every(p=>p.note===null))t+=" Your pads aren’t mapped yet, so the app guesses which pad you hit. Press Learn all notes for exact results.";
   }else t="Pick a beat under Drill to learn it. Lit pads show what to hit now, dashed ones are coming next. On screen, tap the middle of a pad for a center hit, or its left or right edge for a rim hit with your left or right stick.";
   $("beatHint").textContent=t;
 }
@@ -1486,9 +1670,30 @@ function applyMode(){
   setControls();buildBar();buildSeq();kitState();
 }
 $("listen").onclick=()=>{if(!running&&isBeat())start(true);};
-function gradeBeat(t,role,vel,half){
+let unmappedTold=false;const learnVotes={};
+function learnVote(note,role){
+  if(S.layout.some(p=>p.note===note))return;
+  const v=learnVotes[note];
+  if(v&&v.role===role)v.n++;else learnVotes[note]={role,n:1};
+  if(learnVotes[note].n<3)return;
+  const idx=S.layout.findIndex(p=>p.role===role&&p.note===null);
+  if(idx<0||S.layout.some(p=>p.role===role&&p.note!==null))return;
+  S.layout[idx].note=note;saveLayout();kitState();delete learnVotes[note];
+  toast("Pad learned",`Note ${note} is now your ${roleName(role)} pad`,"unlock");
+}
+function midiBlink(){const st=$("status");st.classList.add("rx");clearTimeout(midiBlink.t);midiBlink.t=setTimeout(()=>st.classList.remove("rx"),120);}
+function gradeBeat(t,role,vel,half,note){
   if(!slots.some(s=>s.k>=0)){setReadout("","","Wait for the count-in to finish");return;}
-  if(!role){setReadout("?","wrong","Map your pads so the app knows which one you hit");return;}
+  if(!role){
+    let bs=null,bdd=Infinity;
+    for(const s of slots){if(s.k<0||!s.need.some(r=>!s.got[r]))continue;const d=Math.abs(t-s.t);if(d<bdd){bdd=d;bs=s;}}
+    if(!bs||bdd>half){extras++;setReadout("Extra","wrong","No note expected there");return;}
+    const open=bs.need.filter(r=>!bs.got[r]), unmapped=open.filter(r=>!S.layout.some(p=>p.role===r&&p.note!==null));
+    role=unmapped[0]||open[0];
+    if(note!==null&&note!==undefined&&unmapped.length===1)learnVote(note,unmapped[0]);
+    if(!unmappedTold){unmappedTold=true;toast("Pads not mapped yet","Your hits still count. Press Learn all notes for exact pad matching.","unlock");}
+    const gi=S.layout.findIndex(p=>p.role===role);if(gi>=0)padHitFx(gi,null,vel);
+  }
   let best=null,bd=Infinity;
   for(const s of slots){if(s.k<0||!s.need.includes(role)||s.got[role])continue;const d=Math.abs(t-s.t);if(d<bd){bd=d;best=s;}}
   if(!best||bd>half){extras++;setReadout("Extra","wrong",`${roleName(role)} isn’t in the beat there`);return;}
@@ -1534,7 +1739,8 @@ async function start(demo){
   if(running)return;
   if(cal)finishCal(true);
   await ensureAudio();
-  S.demo=!!demo;demoEnding=false;lastCur=null;
+  S.demo=!!demo;demoEnding=false;lastCur=null;unmappedTold=false;
+  if(S.mapIdx!==null||S.walk||S.learn||S.editing){S.mapIdx=null;S.walk=false;S.learn=null;S.editing=false;S.editIdx=null;padLabels();kitState();}
   hits=[];misses=0;missesGap=0;extras=0;slots=[];cleanBars=0;bpmStart=S.bpm;
   sess=S.demo?null:{t0:performance.now(),xp:0,run:0};$("sXp").textContent="0";
   k=-spb();nextTime=audio.currentTime+0.15;
@@ -1581,10 +1787,11 @@ function hit(perf,note,vel,handOverride,roleOverride,padIdx,zone){
   }
   if(vel!==null)$("velBar").style.width=Math.round(vel/127*100)+"%";
   if(cal)calHit(perf);
+  if(note!==null&&padIdx<0&&isBeat()&&(!running||S.demo))setReadout(`Note ${note}`,"","This pad isn’t mapped yet. Press Learn all notes, or start the beat and the app learns it as you play.");
   if(!running||S.demo)return;
 
   const t=perf-S.latency, half=slotMs()/2;
-  if(isBeat()){gradeBeat(t,role,vel,half);return;}
+  if(isBeat()){gradeBeat(t,role,vel,half,note);return;}
   let best=null,bd=Infinity;
   for(const s of slots){if(s.k<0)continue;const d=Math.abs(t-s.t);if(d<bd){bd=d;best=s;}}
   if(!best||bd>half){setReadout("","",hits.length?"":"Wait for the count-in to finish");return;}
@@ -2342,12 +2549,15 @@ document.querySelectorAll(".wrap > section").forEach(sec=>{
   btn.onclick=()=>{const open=sec.classList.contains("collapsed");set(open);folded[key]=!open;save("folded",folded);if(open)drawLane();};
   sections[key]={open:()=>{if(sec.classList.contains("collapsed"))btn.click();}};
 });
-const TABS=["practice","beats","progress","setup","guide"];
+const TABS=["practice","beats","progress","setup","guides","guide","mapping"];
+let prevTab="practice";
 function showTab(t){
   if(!TABS.includes(t))t="practice";
+  {const cur=load("tab","practice");if(t==="mapping"&&cur!=="mapping")prevTab=cur;}
   document.querySelectorAll(".wrap > section[data-view]").forEach(sec=>{sec.hidden=sec.dataset.view!==t;});
-  document.querySelectorAll("[data-tab]").forEach(b=>{const on=b.dataset.tab===(t==="guide"?"setup":t);b.classList.toggle("active",on);if(on)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  document.querySelectorAll("[data-tab]").forEach(b=>{const on=b.dataset.tab===(t==="guide"||t==="mapping"?"guides":t);b.classList.toggle("active",on);if(on)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
   save("tab",t);
+  document.querySelectorAll(".gp-switch .gsegbtn").forEach(b=>{const on=b.dataset.go===t;b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on));});
   if(t==="practice")drawLane();
   window.scrollTo(0,0);
 }
@@ -2355,8 +2565,13 @@ document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()
 $("lvChip").onclick=()=>showTab("progress");
 $("status").onclick=async()=>{if(!midiAccess){await connectMidi();if(!midiAccess)showTab("guide");}else showTab("setup");};
 $("openGuide").onclick=()=>showTab("guide");
-$("gpBack").onclick=()=>showTab("setup");
+$("gpBack").onclick=()=>showTab("guides");
 $("gpPractice").onclick=()=>showTab("practice");
+["mapHelp","mapHelp2","gpMapHelp"].forEach(id=>{$(id).onclick=()=>showTab("mapping");});
+$("mpBack").onclick=()=>showTab("guides");
+document.querySelectorAll(".gp-switch .gsegbtn").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.go)));
+$("mpLearn").onclick=()=>{showTab("practice");if(!S.walk)$("mapKit").click();};
+$("mpEdit").onclick=()=>{showTab("practice");if(!S.editing)$("editKit").click();};
 $("gpConnect").onclick=connectMidi;
 showTab(load("tab","practice"));
 
@@ -2365,8 +2580,10 @@ const guide=$("guide");
 function openGuide(){if(guide&&typeof guide.showModal==="function"&&!guide.open)guide.showModal();}
 $("helpBtn").onclick=openGuide;
 $("gToGuide").onclick=()=>{guide.close();showTab("guide");};
-document.querySelectorAll(".gsegbtn").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".gsegbtn").forEach(x=>{const on=x===b;x.classList.toggle("active",on);x.setAttribute("aria-pressed",String(on));$(x.dataset.pane).hidden=!on;});
+$("gToMap").onclick=()=>{guide.close();showTab("mapping");};
+document.querySelectorAll(".gh-card").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.go==="tour")openGuide();else showTab(b.dataset.go);}));
+document.querySelectorAll(".gsegbtn[data-pane]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".gsegbtn[data-pane]").forEach(x=>{const on=x===b;x.classList.toggle("active",on);x.setAttribute("aria-pressed",String(on));$(x.dataset.pane).hidden=!on;});
 }));
 guide.addEventListener("close",()=>save("seenGuide",true));
 guide.addEventListener("click",e=>{if(e.target===guide)guide.close();});
